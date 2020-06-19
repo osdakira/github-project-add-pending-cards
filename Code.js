@@ -4,5 +4,8 @@
 function doPost(e) {
   const jsonStr = e.postData.getDataAsString();
   const json = JSON.parse(jsonStr);
-  moveProjectCards(json);
+  if (json.issue === undefined) return;
+  if (json.action !== 'opened') return;
+
+  moveProjectCards();
 }
