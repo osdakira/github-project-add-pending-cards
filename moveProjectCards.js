@@ -64,10 +64,7 @@ function makeMoveNewColumnsJsons(pendingCardIds) {
   });
 }
 
-function moveProjectCards(webhookJson) {
-  if (webhookJson.issue === undefined) return;
-  if (webhookJson.action !== 'opened') return;
-
+function moveProjectCards() {
   const pendingCardIds = fetchPendingCardIds();
   const jsons = makeMoveNewColumnsJsons(pendingCardIds);
   jsons.forEach((json) => callGraphql(json));
