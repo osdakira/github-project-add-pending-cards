@@ -28,6 +28,10 @@ clasp open
 
 You must check `Issues, Project cards,Project columns` events.
 
+If you cannot use webhook, you can use Time-driven triggers.
+https://developers.google.com/apps-script/guides/triggers/installable
+Call `moveProjectCards()` function.
+
 # development
 
 ```
