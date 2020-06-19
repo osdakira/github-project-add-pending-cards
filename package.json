@@ -1,0 +1,25 @@
+{
+  "name": "github-project-add-pending-cards",
+  "version": "1.0.0",
+  "description": "Add a card to a column instead of triaging on the github project",
+  "main": "Code.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osdakira/github-project-add-pending-cards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osdakira/github-project-add-pending-cards/issues"
+  },
+  "homepage": "https://github.com/osdakira/github-project-add-pending-cards#readme"
+}
