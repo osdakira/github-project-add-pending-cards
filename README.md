@@ -1,5 +1,9 @@
 # github-project-add-pending-cards
-Add a card to a column instead of triaging on the github project
+
+Add a card to a column instead of triaging on the github project.
+
+When you add a card to a github project, it is not added to the column even if you have automation set.
+You can add it to the column by triggering a github webhook or a schedule.
 
 # install
 

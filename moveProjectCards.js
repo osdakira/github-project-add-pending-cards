@@ -47,25 +47,21 @@ function fetchPendingCardIds() {
   return pendingCardIds;
 }
 
-function makeMoveNewColumnsJsons(pendingCardIds) {
+function makeMoveNewColumnsJson(pendingCardIds) {
   const newColumnId = getProperty('GITHUB_PROJECT_COLUMN_ID');
-  return pendingCardIds.map((id) => {
-    const QUERY = `
-      mutation {
-        moveProjectCard(input: {
-          columnId: "${newColumnId}",
-          cardId: "${id}"
-        }) {
-          clientMutationId
-        }
+  const mutations = pendingCardIds.map((id, index) => `
+      moveProjectCard_${index} : moveProjectCard(input: {
+        columnId: "${newColumnId}",
+        cardId: "${id}"
+      }) {
+        clientMutationId
       }
-    `;
-    return { query: QUERY.replace(/\s+/g, ' ') };
-  });
+    `);
+  return { query: `mutation { ${mutations.join(' ').replace(/\s+/g, ' ')} }` };
 }
 
 function moveProjectCards() {
   const pendingCardIds = fetchPendingCardIds();
-  const jsons = makeMoveNewColumnsJsons(pendingCardIds);
-  jsons.forEach((json) => callGraphql(json));
+  const json = makeMoveNewColumnsJson(pendingCardIds);
+  callGraphql(json);
 }
